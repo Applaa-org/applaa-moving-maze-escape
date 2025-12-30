@@ -1,0 +1,66 @@
+{
+  "game": {
+    "name": "Moving Maze Escape",
+    "type": "2D",
+    "genre": "puzzle",
+    "description": "Navigate through a moving maze and reach the exit before time runs out. Walls shift and move, creating a dynamic challenge. Touch a wall and you reset to the start - but the clock keeps ticking!"
+  },
+  "settings": {
+    "window": {
+      "width": 800,
+      "height": 600
+    },
+    "physics": {
+      "gravity": 0
+    }
+  },
+  "player": {
+    "name": "Player",
+    "health": 1,
+    "speed": 200,
+    "abilities": ["move"]
+  },
+  "entities": {
+    "enemies": [],
+    "collectibles": [],
+    "hazards": [
+      {
+        "name": "MovingWall",
+        "behavior": "oscillate",
+        "damage": "reset_position"
+      }
+    ]
+  },
+  "levels": [
+    {
+      "name": "Level 1",
+      "background": "dark_maze",
+      "timerDuration": 45,
+      "mazeSize": {
+        "cols": 15,
+        "rows": 11
+      }
+    }
+  ],
+  "logic": {
+    "winCondition": "reach_goal",
+    "loseCondition": "time_out",
+    "scoring": {
+      "baseScore": 500,
+      "pointsPerSecondRemaining": 100
+    }
+  },
+  "controls": {
+    "desktop": {
+      "up": ["W", "ArrowUp"],
+      "down": ["S", "ArrowDown"],
+      "left": ["A", "ArrowLeft"],
+      "right": ["D", "ArrowRight"],
+      "pause": ["Escape"]
+    },
+    "mobile": {
+      "type": "dpad",
+      "position": "bottom-center"
+    }
+  }
+}
